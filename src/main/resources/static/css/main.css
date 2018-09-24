@@ -1,0 +1,16 @@
+body{
+    background-color: azure;
+}
+
+#flagEn{
+    background-image:url("../images/en.png");
+}
+
+#flagEs{
+    background-image:url("../images/es.png");
+}
+
+#flagPt{
+
+}
+

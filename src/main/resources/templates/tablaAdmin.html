@@ -1,0 +1,49 @@
+<div class="container">
+    <h1 th:text="#{listaTitulo}"></h1>
+    <div>
+        <form>
+            <div class="form-group">
+                <div class="input-group" id="searchVideo">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" th:text="#{searchVideojuego}"></span>
+                    </div>
+                    <input type="text" class="form-control" aria-describedby="searchVideo" ng-model="searchVideogame">
+                </div>
+            </div>
+        </form>
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th scope="col">
+                    <a href="#" ng-click="cambiarIcono('name')" th:text="#{nombre}">
+                    </a>
+                    <span ng-show="!sortReverse && sortType=='name'" class="fa fa-caret-down"></span>
+                    <span ng-show="sortReverse && sortType=='name'" class="fa fa-caret-up"></span>
+                </th>
+                <th scope="col">
+                    <a href="#" ng-click="cambiarIcono('company')" th:text="#{companyia}">
+                    </a>
+                    <span ng-show="!sortReverse && sortType=='company'" class="fa fa-caret-down"></span>
+                    <span ng-show="sortReverse && sortType=='company'" class="fa fa-caret-up"></span>
+                </th>
+                <th scope="col">
+                    <a href="#" ng-click="cambiarIcono('rating.id')" th:text="#{listaPEGI}">
+                    </a>
+                    <span ng-show="!sortReverse && sortType=='rating.id'" class="fa fa-caret-down"></span>
+                    <span ng-show="sortReverse && sortType=='rating.id'" class="fa fa-caret-up"></span>
+                </th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr ng-repeat="videojuego in lista | orderBy:sortType:sortReverse | filter:searchVideogame">
+                <th scope="row">{{videojuego.name}}</th>
+                <th scope="row">{{videojuego.company}}</th>
+                <th scope="row">{{videojuego.rating.rating}}</th>
+                <th><button type="button" ng-click="editar(videojuego)" class="btn btn-primary" th:text="#{editar}"></button></th>
+                <th><button type="button" ng-click="delete(videojuego.id)" class="btn btn-danger" th:text="#{listaDelete}"></button></th>
+            </tr>
+            </tbody>
+        </table>
+        <button type="button" ng-click="add()" class="btn btn-success" th:text="#{anadir}"></button>
+    </div>
+</div>

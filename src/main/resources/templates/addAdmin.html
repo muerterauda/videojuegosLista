@@ -1,0 +1,34 @@
+<div class="container">
+    <h1  th:text="#{anadir}"></h1>
+    <div>
+        <form name="videojuegoAddForm" ng-submit="add()">
+            <div class="input-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="name" th:text="#{nombre}"></span>
+                </div>
+                <input type="text" class="form-control" aria-label="Username" aria-describedby="name" ng-model="name">
+            </div>
+            <br/>
+            <div class="input-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="company" th:text="#{companyia}"></span>
+                </div>
+                <input type="text" class="form-control" aria-label="Company" aria-describedby="company" ng-model="company">
+            </div>
+            <br/>
+            <div class="input-group">
+                <div class="input-group-prepend">
+                    <label class="input-group-text" for="pegi" th:text="#{pegi}"></label>
+                </div>
+                <select class="custom-select" id="pegi" ng-model="pegi">
+                    <option value="" th:text="#{pegi2}"></option>
+                    <option ng-repeat="x in lista" value="{{x.id}}">{{x.rating}}</option>
+                </select>
+            </div>
+            <br/>
+            <p class="text-danger">{{resultMessage}}</p>
+            <br/>
+            <button type="button" ng-click="add()" class="btn btn-success" th:text="#{anadir}"></button>
+        </form>
+    </div>
+</div>

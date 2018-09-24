@@ -1,0 +1,30 @@
+<div class="container">
+        <div class="row align-items-center justify-content-end">
+            <div class="col-10">
+                <h1 id="title" th:text="#{loginTitulo}"></h1>
+            </div>
+            <div class="col-2">
+                <ui-select ng-model="selected" theme="selectize" search-enabled="false" on-select="cambioIdioma($item)" style="min-width: 150px;">
+                    <ui-select-match placeholder="{{selectIdioma}}"><img ng-src="{{ $select.selected.srcImage }}" /> {{$select.selected.name}}</ui-select-match>
+                    <ui-select-choices repeat="language in Languages" position='down'>
+                        <img ng-src="{{language.srcImage}}" />
+                        <div ng-bind-html="language.name"></div>
+                    </ui-select-choices>
+                </ui-select>
+            </div>
+        </div>
+        <form name="usuarioForm" ng-submit="submitForm()">
+            <div class="form-group">
+                <label for="user"  th:text="#{user}"></label>
+                <input type="text" class="form-control" id="user" maxlength="50" ng-model="nombre">
+            </div>
+            <div class="form-group">
+                <label for="pass" th:text="#{password}"></label>
+                <input type="password" class="form-control" id="pass" maxlength="50" ng-model="pass">
+            </div>
+            <button type="submit" class="btn btn-primary" th:text="#{submit}"></button>
+        </form>
+        <br/>
+        <p class="text-danger">{{resultMessage}}</p>
+        <br/>
+</div>
