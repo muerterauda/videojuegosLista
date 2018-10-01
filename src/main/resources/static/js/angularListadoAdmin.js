@@ -1,5 +1,33 @@
 var app=angular.module('appTableAdmin', ['ngRoute']);
 
+app.directive('barChart', function(){
+    var chart = d3.custom.barChart();
+    return {
+        restrict: 'E',
+        replace: true,
+        template: '<div class="chart"></div>',
+        scope:{
+            height: '=height',
+            data: '=data',
+            hovered: '&hovered'
+        },
+        link: function(scope, element, attrs) {
+            var chartEl = d3.select(element[0]);
+            chart.on('customHover', function(d, i){
+                scope.hovered({args:d});
+            });
+
+            scope.$watch('data', function (newVal, oldVal) {
+                chartEl.datum(newVal).call(chart);
+            });
+
+            scope.$watch('height', function(d, i){
+                chartEl.call(chart.height(scope.height));
+            })
+        }
+    }
+});
+
 app.config(function ($routeProvider) {
     $routeProvider
         .when('/add',{
@@ -92,7 +120,13 @@ app.controller('listadoController',function ($scope, $http, $location, $route, e
     $scope.sortType     = 'name'; //company, rating
     $scope.sortReverse  = false;
     $scope.searchVideogame  = '';
-
+    $scope.options = {width: 6000, height: 300, 'bar': 'aaa'};
+    $scope.data = [10, 2, 3, 4, 40000];
+    $scope.hovered = function(d){
+        $scope.barValue = d;
+        $scope.$apply();
+    };
+    $scope.barValue = 'None';
     $scope.add =function(){
         $location.path('/add');
         $route.reload();
