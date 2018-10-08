@@ -13,6 +13,7 @@ import org.springframework.data.domain.Sort;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.ModelAndView;
 
 import java.util.*;
 
@@ -27,6 +28,13 @@ public class RestControlador
     private RatingFacade ratingFacade;
     @Autowired
     private LanguageFacade languageFacade;
+
+    @GetMapping("/")
+    public ModelAndView inicio(){
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.setViewName("index");
+        return modelAndView;
+    }
 
     @PostMapping("/login")
     public ResponseEntity<Integer> login(@RequestBody Usuario customer){

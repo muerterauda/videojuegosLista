@@ -16,11 +16,11 @@
         <form name="usuarioForm" ng-submit="submitForm()">
             <div class="form-group">
                 <label for="user"  th:text="#{user}"></label>
-                <input type="text" class="form-control" id="user" maxlength="50" ng-model="nombre">
+                <input type="text" class="form-control" id="user" name="username" maxlength="50" ng-model="nombre">
             </div>
             <div class="form-group">
                 <label for="pass" th:text="#{password}"></label>
-                <input type="password" class="form-control" id="pass" maxlength="50" ng-model="pass">
+                <input type="password" class="form-control" name="password" id="pass" maxlength="50" ng-model="pass">
             </div>
             <button type="submit" class="btn btn-primary" th:text="#{submit}"></button>
         </form>

@@ -9,11 +9,12 @@ import java.util.Locale;
 
 @Controller
 public class WebController {
-    @RequestMapping(value = "/", method = {RequestMethod.GET, RequestMethod.POST} )
+  /*  @RequestMapping(value = "/", method = {RequestMethod.GET, RequestMethod.POST} )
     public ModelAndView  getLogin() {
         ModelAndView modelAndView = new ModelAndView("index");
         return modelAndView;
     }
+    */
     @RequestMapping(value = "/loginHtml", method = {RequestMethod.GET, RequestMethod.POST} )
     public ModelAndView  getLogin2() {
         ModelAndView modelAndView = new ModelAndView("login.html");

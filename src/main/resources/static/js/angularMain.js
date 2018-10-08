@@ -103,7 +103,6 @@ app.controller('loginController', function ($scope, $http,$location, internaliza
             cadenas[1]='errorNotFound';
             cadenas[2]='errorPassword';
             var url = "/resourceInternalization";
-
             if(numero==0){
                 internalization.getData(url, cadenas, config).then(function (promise) {
                     $scope.resultMessage= promise.errorNotFound;
