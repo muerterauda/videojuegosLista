@@ -1,4 +1,5 @@
 package com.crudvideojuegos.configuracionSeguridad;
+/*
 
 import com.crudvideojuegos.model.usuario.Usuario;
 import com.crudvideojuegos.model.usuario.UsuarioFacade;
@@ -63,7 +64,8 @@ public class WebSecurity extends WebSecurityConfigurerAdapter {
         return source;
     }
 
-   /* @Bean(name = "dataSource")
+   */
+/* @Bean(name = "dataSource")
     public DriverManagerDataSource dataSource() {
         DriverManagerDataSource driverManagerDataSource = new DriverManagerDataSource();
         driverManagerDataSource.setDriverClassName("com.mysql.jdbc.Driver");
@@ -78,5 +80,7 @@ public class WebSecurity extends WebSecurityConfigurerAdapter {
         auth.jdbcAuthentication().dataSource(dataSource())
                 .usersByUsernameQuery("select nombre,contrasenya, enabled from usuario where nombre=?")
                 .authoritiesByUsernameQuery("select nombre, role from usuario where nombre=?");
-    }*/
+    }*//*
+
 }
+*/

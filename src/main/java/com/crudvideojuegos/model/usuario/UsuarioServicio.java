@@ -1,6 +1,6 @@
 package com.crudvideojuegos.model.usuario;
 
-import org.springframework.beans.factory.annotation.Autowired;
+/*import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -25,4 +25,4 @@ public class UsuarioServicio implements UserDetailsService {
         }
         return new User(applicationUser.getNombre(), applicationUser.getContrasenya(), applicationUser.getRole(), emptyList());
     }
-}
+}*/
