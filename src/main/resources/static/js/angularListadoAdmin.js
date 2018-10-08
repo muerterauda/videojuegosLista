@@ -120,13 +120,15 @@ app.controller('listadoController',function ($scope, $http, $location, $route, e
     $scope.sortType     = 'name'; //company, rating
     $scope.sortReverse  = false;
     $scope.searchVideogame  = '';
-    $scope.options = {width: 6000, height: 300, 'bar': 'aaa'};
-    $scope.data = [10, 2, 3, 4, 40000];
-    $scope.hovered = function(d){
-        $scope.barValue = d;
-        $scope.$apply();
-    };
+    //d3
+        $scope.options = {width: 6000, height: 300, 'bar': 'aaa'};
+        $scope.data = [10, 2, 3, 4, 40000];
+        $scope.hovered = function(d){
+            $scope.barValue = d;
+            $scope.$apply();
+        };
     $scope.barValue = 'None';
+    //end d3
     $scope.add =function(){
         $location.path('/add');
         $route.reload();
